@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
+import MovieCard from './MovieCard';
 
 class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      movies : []
+      movies : [],
+      error: ''
     }
   }
 
   componentWillMount() {
-    fetch('https://gist.githubusercontent.com/nnnkit/84a2e3ad069128604614fd5e1c728d94/raw/4a2593181e54ed3d90ab8dc8017f0242641cd98d/data.json').
+    fetch('https://yts.am/api/v2/list_movies.json?limit=50').
     then(res => {
       if(res.status === 200) {
         console.log('fetch')
@@ -18,15 +20,20 @@ class Main extends Component {
         throw new Error("API Not Fetched");
       }
     }).then(json => this.setState({
-      movies : json.data.movies
+      movies : json.data.movies.slice(4)
     }));
   }
 
   render() {
-    // console.log(this.state)
+    const {movies} = this.state
     return (
       <main>
-        {/* <h2 className="Mov"></h2> */}
+        <h2 className="Movie">Movies All The Time</h2>
+        {
+          movies.map((movie,key) => (
+            <MovieCard details={movie} key={key}/>
+          ))
+        }
       </main>
     );
   }
