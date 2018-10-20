@@ -1,0 +1,42 @@
+.movie-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  place-items : center;
+}
+
+.Movie {
+  font-size: 2.5rem;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.MovieCard-cover {
+  width: 100%;
+}
+
+.MovieCard {
+  width: 230px;
+}
+
+.MovieCard-title {
+  font-size: 1.3rem;
+  margin: 0.3rem 0;
+}
+
+.MovieCard-info{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.1rem;
+}
+
+.MovieCard-stream {
+  a {
+    display: block;
+    font-size: 1.1rem;
+    color: #000;
+    text-decoration: underline;
+    text-align: center;
+    margin: 0.2rem 0;
+  }
+}

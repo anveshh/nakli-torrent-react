@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard';
+import './../scss/Main.scss';
 
 class Main extends Component {
   constructor(props) {
@@ -20,7 +21,7 @@ class Main extends Component {
         throw new Error("API Not Fetched");
       }
     }).then(json => this.setState({
-      movies : json.data.movies.slice(4)
+      movies : json.data.movies
     }));
   }
 
@@ -29,11 +30,13 @@ class Main extends Component {
     return (
       <main>
         <h2 className="Movie">Movies All The Time</h2>
-        {
-          movies.map((movie,key) => (
-            <MovieCard details={movie} key={key}/>
-          ))
-        }
+        <div className="movie-container">
+          {
+            movies.map((movie,key) => (
+              <MovieCard details={movie} key={key}/>
+            ))
+          }
+        </div>
       </main>
     );
   }
