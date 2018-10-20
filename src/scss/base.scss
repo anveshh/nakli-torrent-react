@@ -1,0 +1,23 @@
+.inline {
+  display: inline-block;
+}
+
+a {
+  font-family: 'KoHo', sans-serif;
+  text-decoration: none;
+}
+
+.center {
+  text-align: center;
+}
+
+.wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
